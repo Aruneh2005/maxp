@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="MaxPrint - Group of Companies. We're dedicated to the development of the printing industry.">
+    <title>MaxPrint - Group of Companies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="20" cy="20" r="18" stroke="url(#logoGradient)" stroke-width="3" />
+                        <path d="M12 28V14h5c3 0 5 2 5 4.5S20 23 17 23h-2v5h-3z" fill="url(#logoGradient)" />
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0" y1="0" x2="40" y2="40">
+                                <stop offset="0%" stop-color="#f7931e" />
+                                <stop offset="50%" stop-color="#d4145a" />
+                                <stop offset="100%" stop-color="#1e3a8a" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">MaxPrint</span>
+                    <span class="logo-subtitle">Group of Companies</span>
+                </div>
+            </a>
+
+            <nav class="nav" id="nav">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link active">HOME</a></li>
+                    <li><a href="#services" class="nav-link">OUR SERVICES</a></li>
+                    <li><a href="#contact" class="nav-link">CONTACT</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="btn-login">Login</button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-slider">
+            <div class="hero-slide active">
+                <div class="hero-content">
+                    <p class="hero-welcome">Welcome to</p>
+                    <h1 class="hero-title">MAXPRINT</h1>
+                    <h2 class="hero-subtitle">GROUP OF COMPANY</h2>
+                    <p class="hero-tagline">We're Dedicated for development of printing industry</p>
+                    <a href="#services" class="hero-cta">Explore Services</a>
+                </div>
+            </div>
+        </div>
+        <button class="hero-arrow hero-arrow-left" id="prevSlide" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6" />
+            </svg>
+        </button>
+        <button class="hero-arrow hero-arrow-right" id="nextSlide" aria-label="Next slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6" />
+            </svg>
+        </button>
+        <div class="hero-indicators">
+            <span class="indicator active"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">OUR SERVICES</h2>
+            <div class="services-grid">
+                <a href="photo-print.html" class="service-card service-btn">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="12" width="48" height="40" rx="4" stroke="#1e3a8a" stroke-width="2"
+                                fill="#e0f2fe" />
+                            <rect x="14" y="18" width="36" height="28" rx="2" fill="#dbeafe" />
+                            <circle cx="32" cy="32" r="10" fill="#4ade80" />
+                            <circle cx="32" cy="32" r="5" fill="#1e3a8a" />
+                            <circle cx="45" cy="22" r="4" fill="#fbbf24" />
+                        </svg>
+                    </div>
+                    <h3 class="service-title">PHOTO PRINT</h3>
+                    <p class="service-desc">High-quality photo printing services for all your memories</p>
+                </a>
+
+                <a href="banner.html" class="service-card service-btn">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="16" width="48" height="32" rx="2" stroke="#1e3a8a" stroke-width="2"
+                                fill="#fef3c7" />
+                            <path d="M8 16h48v8H8z" fill="#f7931e" />
+                            <rect x="16" y="30" width="32" height="4" fill="#d4145a" />
+                            <rect x="20" y="38" width="24" height="3" fill="#94a3b8" />
+                            <circle cx="8" cy="16" r="3" fill="#1e3a8a" />
+                            <circle cx="56" cy="16" r="3" fill="#1e3a8a" />
+                        </svg>
+                    </div>
+                    <h3 class="service-title">BANNER</h3>
+                    <p class="service-desc">Eye-catching banners for events, promotions, and advertising</p>
+                </a>
+
+                <a href="visiting-cards.html" class="service-card service-btn">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="18" width="48" height="28" rx="4" stroke="#1e3a8a" stroke-width="2"
+                                fill="white" />
+                            <rect x="14" y="24" width="16" height="16" rx="2" fill="#e0f2fe" />
+                            <circle cx="22" cy="30" r="4" fill="#4ade80" />
+                            <rect x="36" y="26" width="16" height="3" fill="#1e3a8a" />
+                            <rect x="36" y="32" width="12" height="2" fill="#94a3b8" />
+                            <rect x="36" y="37" width="14" height="2" fill="#94a3b8" />
+                        </svg>
+                    </div>
+                    <h3 class="service-title">VISITING CARDS</h3>
+                    <p class="service-desc">Professional business cards that make lasting impressions</p>
+                </a>
+
+                <a href="mug-printing.html" class="service-card service-btn">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 16h32v36c0 4-4 8-8 8H20c-4 0-8-4-8-8V16z" stroke="#1e3a8a" stroke-width="2"
+                                fill="#e0f2fe" />
+                            <path d="M44 22h8c4 0 6 3 6 6v8c0 3-2 6-6 6h-8" stroke="#1e3a8a" stroke-width="2" />
+                            <rect x="20" y="28" width="16" height="16" rx="2" fill="#d4145a" />
+                            <circle cx="28" cy="36" r="4" fill="#fbbf24" />
+                        </svg>
+                    </div>
+                    <h3 class="service-title">MUG PRINTING</h3>
+                    <p class="service-desc">Custom printed mugs for gifts and promotional purposes</p>
+                </a>
+
+                <a href="stickers.html" class="service-card service-btn">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="14" stroke="#1e3a8a" stroke-width="2" fill="#4ade80" />
+                            <rect x="28" y="28" width="24" height="24" rx="4" stroke="#1e3a8a" stroke-width="2"
+                                fill="#fbbf24" />
+                            <path d="M16 44l12-12 12 12-12 12z" stroke="#1e3a8a" stroke-width="2" fill="#d4145a" />
+                        </svg>
+                    </div>
+                    <h3 class="service-title">STICKERS</h3>
+                    <p class="service-desc">Custom stickers in various sizes and finishes</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Address</h4>
+                            <p>123 Print Street, Business District<br>New Delhi, India - 110001</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 98765 43210</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@maxprint.com</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="4" required></textarea>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>MaxPrint</h3>
+                    <p>Group of Companies</p>
+                    <p class="footer-tagline">Dedicated to the development of printing industry</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MaxPrint Group of Companies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
