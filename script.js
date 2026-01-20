@@ -25,13 +25,13 @@ let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
+
     if (currentScroll > 50) {
         header.classList.add('scrolled');
     } else {
         header.classList.remove('scrolled');
     }
-    
+
     lastScroll = currentScroll;
 });
 
@@ -108,17 +108,17 @@ const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         // Get form data
         const formData = new FormData(contactForm);
-        
+
         // Show success message (in real app, send to server)
         const submitBtn = contactForm.querySelector('.btn-submit');
         const originalText = submitBtn.textContent;
-        
+
         submitBtn.textContent = 'Message Sent!';
         submitBtn.style.background = '#4ade80';
-        
+
         setTimeout(() => {
             submitBtn.textContent = originalText;
             submitBtn.style.background = '';
@@ -129,15 +129,15 @@ if (contactForm) {
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
-        
+
         if (targetElement) {
             const headerHeight = document.querySelector('.header').offsetHeight;
             const targetPosition = targetElement.offsetTop - headerHeight;
-            
+
             window.scrollTo({
                 top: targetPosition,
                 behavior: 'smooth'
@@ -178,7 +178,7 @@ const animateCounter = (element) => {
     const duration = 2000;
     const step = target / (duration / 16);
     let current = 0;
-    
+
     const updateCounter = () => {
         current += step;
         if (current < target) {
@@ -188,7 +188,7 @@ const animateCounter = (element) => {
             element.textContent = target + '+';
         }
     };
-    
+
     updateCounter();
 };
 
@@ -204,3 +204,96 @@ const statsObserver = new IntersectionObserver((entries) => {
 stats.forEach(stat => {
     statsObserver.observe(stat);
 });
+
+// Gallery Slider Functionality
+const galleryTrack = document.getElementById('galleryTrack');
+const galleryPrev = document.getElementById('galleryPrev');
+const galleryNext = document.getElementById('galleryNext');
+const galleryDotsContainer = document.getElementById('galleryDots');
+
+if (galleryTrack && galleryPrev && galleryNext) {
+    const galleryItems = galleryTrack.querySelectorAll('.gallery-item');
+    let currentGalleryIndex = 0;
+    let itemsPerView = 3;
+
+    // Calculate items per view based on screen size
+    function getItemsPerView() {
+        if (window.innerWidth <= 768) return 1;
+        if (window.innerWidth <= 1024) return 2;
+        return 3;
+    }
+
+    // Create dots
+    function createDots() {
+        if (!galleryDotsContainer) return;
+        galleryDotsContainer.innerHTML = '';
+        itemsPerView = getItemsPerView();
+        const totalDots = Math.ceil(galleryItems.length / itemsPerView);
+
+        for (let i = 0; i < totalDots; i++) {
+            const dot = document.createElement('span');
+            dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+            dot.addEventListener('click', () => goToGallerySlide(i));
+            galleryDotsContainer.appendChild(dot);
+        }
+    }
+
+    // Update dots
+    function updateGalleryDots() {
+        if (!galleryDotsContainer) return;
+        const dots = galleryDotsContainer.querySelectorAll('.gallery-dot');
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentGalleryIndex);
+        });
+    }
+
+    // Calculate slide position
+    function getSlidePosition() {
+        itemsPerView = getItemsPerView();
+        const itemWidth = galleryItems[0].offsetWidth + 24; // 24 is the gap
+        return -(currentGalleryIndex * itemsPerView * itemWidth);
+    }
+
+    // Go to specific slide
+    function goToGallerySlide(index) {
+        itemsPerView = getItemsPerView();
+        const maxIndex = Math.ceil(galleryItems.length / itemsPerView) - 1;
+        currentGalleryIndex = Math.max(0, Math.min(index, maxIndex));
+        galleryTrack.style.transform = `translateX(${getSlidePosition()}px)`;
+        updateGalleryDots();
+    }
+
+    // Previous slide
+    galleryPrev.addEventListener('click', () => {
+        goToGallerySlide(currentGalleryIndex - 1);
+    });
+
+    // Next slide
+    galleryNext.addEventListener('click', () => {
+        goToGallerySlide(currentGalleryIndex + 1);
+    });
+
+    // Initialize
+    createDots();
+
+    // Handle resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            createDots();
+            goToGallerySlide(0);
+        }, 250);
+    });
+
+    // Auto-advance gallery
+    setInterval(() => {
+        itemsPerView = getItemsPerView();
+        const maxIndex = Math.ceil(galleryItems.length / itemsPerView) - 1;
+        if (currentGalleryIndex >= maxIndex) {
+            goToGallerySlide(0);
+        } else {
+            goToGallerySlide(currentGalleryIndex + 1);
+        }
+    }, 4000);
+}
