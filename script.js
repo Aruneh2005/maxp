@@ -295,5 +295,5 @@ if (galleryTrack && galleryPrev && galleryNext) {
         } else {
             goToGallerySlide(currentGalleryIndex + 1);
         }
-    }, 4000);
+    }, 3000);
 }
