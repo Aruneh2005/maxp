@@ -396,6 +396,11 @@ img {
     gap: 30px;
 }
 
+.services-detailed .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
 .service-card {
     background: var(--bg-white);
     border: 1px solid #e2e8f0;
@@ -405,6 +410,13 @@ img {
     transition: var(--transition-normal);
     position: relative;
     overflow: hidden;
+}
+
+.services-detailed .service-card {
+    padding: 48px 32px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .service-card::before {
@@ -433,11 +445,35 @@ img {
     width: 80px;
     height: 80px;
     margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    border-radius: var(--radius-md);
+    padding: 10px;
+    overflow: hidden;
 }
 
-.service-icon svg {
+.services-detailed .service-icon {
     width: 100%;
-    height: 100%;
+    height: 350px;
+    margin-bottom: 30px;
+    padding: 30px;
+}
+
+.service-icon img,
+.service-icon svg {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: var(--transition-normal);
+}
+
+.service-card:hover .service-icon img,
+.service-card:hover .service-icon svg {
+    transform: scale(1.05);
 }
 
 .service-title {
@@ -446,6 +482,11 @@ img {
     color: var(--text-dark);
     margin-bottom: 12px;
     letter-spacing: 0.5px;
+}
+
+.services-detailed .service-title {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
 }
 
 .service-badge {
@@ -471,6 +512,11 @@ img {
     font-size: 0.85rem;
     color: var(--text-medium);
     line-height: 1.5;
+}
+
+.services-detailed .service-desc {
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
 /* ===== About Section ===== */
