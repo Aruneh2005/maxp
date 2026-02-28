@@ -102,7 +102,7 @@ setInterval(() => {
     goToSlide(currentSlide + 1);
 }, 5000);
 
-// Contact form handling
+// Contact form handling (WhatsApp)
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
@@ -110,14 +110,24 @@ if (contactForm) {
         e.preventDefault();
 
         // Get form data
-        const formData = new FormData(contactForm);
+        const name = document.getElementById('waName').value;
+        const email = document.getElementById('waEmail').value;
+        const message = document.getElementById('waMessage').value;
 
-        // Show success message (in real app, send to server)
+        // Build WhatsApp message
+        const waNumber = '916305836395'; // without the '+'
+        const waText = `*New Website Inquiry*\n\n*Name:* ${name}\n*Email:* ${email}\n\n*Message:*\n${message}`;
+        const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`;
+
+        // Open WhatsApp in a new tab
+        window.open(waUrl, '_blank');
+
+        // Show success visual feedback on button
         const submitBtn = contactForm.querySelector('.btn-submit');
         const originalText = submitBtn.textContent;
 
-        submitBtn.textContent = 'Message Sent!';
-        submitBtn.style.background = '#4ade80';
+        submitBtn.textContent = 'Redirecting to WhatsApp...';
+        submitBtn.style.background = '#25D366'; // WhatsApp green
 
         setTimeout(() => {
             submitBtn.textContent = originalText;
