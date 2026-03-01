@@ -291,8 +291,9 @@ if (galleryTrack && galleryPrev && galleryNext) {
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
+            const tempIndex = currentGalleryIndex;
             createDots();
-            goToGallerySlide(0);
+            goToGallerySlide(tempIndex);
         }, 250);
     });
 
